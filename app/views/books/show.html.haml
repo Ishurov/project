@@ -1,0 +1,29 @@
+=breadcrumb_tag do
+  %li.active
+    = @book.isbn
+  %li
+    = link_to 'Книги', books_path
+  %li
+    Библиотека
+
+%h1= @book.isbn
+
+%dl
+  %dt= Book.human_attribute_name(:isbn)
+  %dd= @book.isbn
+  %dt= Book.human_attribute_name(:name)
+  %dd= @book.name
+  %dt= Book.human_attribute_name(:volume)
+  %dd= @book.volume
+  %dt= Book.human_attribute_name(:year_of_publishing)
+  %dd= @book.year_of_publishing
+  %dt= Book.human_attribute_name(:number_of_shelf)
+  %dd= @book.number_of_shelf
+  %dt= Book.human_attribute_name(:stack_id)
+  %dd= @book.stack_id
+  %dt= Book.human_attribute_name(:number_of_copies)
+  %dd= @book.number_of_copies
+  %dt Авторы:
+  -au= @book.authors
+  -au.each do |r|
+    %dd= r.author_index.to_s + " " + r.last_name + " " + r.first_name + " " + r.second_name

@@ -1,0 +1,18 @@
+=breadcrumb_tag do
+  %li.active
+    = @hall.full_name
+  %li
+    = link_to 'Библиотечные залы', halls_path
+  %li
+    Библиотека
+
+%h1= @hall.full_name
+
+%dl
+  %dt= Hall.human_attribute_name(:full_name)
+  %dd= @hall.full_name
+  %dt= Hall.human_attribute_name(:short_name)
+  %dd= @hall.short_name
+
+
+  

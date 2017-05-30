@@ -1,0 +1,160 @@
+ru:
+  app:
+    name: Приложение в разработке
+    company:
+      short_name: МПУ
+      department: Кафедра
+    users:
+      index: Список пользователей
+      new-button: Новый пользователь 
+      edit: Редактирование пользователя
+      new: Создание пользователя
+    roles:
+      index: Список возможных ролей пользователей
+      new-button: Новая роль
+      edit: Редактирование роли
+      new: Создание роли
+    authors:
+      index: Список авторов
+      new-button: Новый автор 
+      edit: Редактирование автора
+      new: Создание автора
+    books:
+      index: Список книг
+      new-button: Новая книга 
+      edit: Редактирование книги
+      new: Создание книги
+    halls:
+      index: Список залов
+      new-button: Новый зал 
+      edit: Редактирование зала
+      new: Создание зала
+    stacks:
+      index: Список стеллажей
+      new-button: Новый стеллаж 
+      edit: Редактирование стеллажа
+      new: Создание стеллажа
+  helpers:
+    submit:
+      create: Сохранить
+      submit: Сохранить
+      update: Сохранить
+    sure: Действительно удалить? 
+  buttons:
+    edit: Редактировать
+    destroy: Удалить
+    show: Показать
+    save: Сохранить
+    back: Назад
+    confirm:
+      user: Действительно удалить пользователя?
+      role: Действительно удалить роль?
+      author: Действительно удалить автора?
+      book: Действительно удалить книгу?
+      stack: Действительно удалить стеллаж?
+      hall: Действительно удалить зал? (ВНИМАНИЕ! Будут удалены все стеллажи в этом зале)
+    new: 
+      user: Новый пользователь
+      role: Новая роль
+      author: Новый автор 
+      book: Новая книга 
+      stack: Новый стеллаж
+      hall: Новый зал
+    search:
+      book: Найти книги
+  headers:
+    users:
+      edit: Редактирование пользователя
+      new: Новый пользователь
+      index: Список пользователей
+    roles:
+      index: Список возможных ролей пользователей
+      edit: Редактирование роли
+      new: Новая роль
+    authors:
+      index: Список авторов
+      new: Новый автор 
+      edit: Редактирование автора
+    books:
+      index: Список книг
+      new: Новая книга 
+      edit: Редактирование книги
+      search: Поиск книг
+    halls:
+      index: Список залов
+      new: Новый зал 
+      edit: Редактирование зала
+    stacks:
+      index: Список стеллажей
+      new: Новый стеллаж 
+      edit: Редактирование стеллажа
+  forms:
+    book_search:
+      found: Найдено книг
+      book: По параметрам книги
+      location: По расположению
+      author: По параметрам автора
+  views:
+    pagination:
+      first: ⇤
+      last: ⇥
+      previous: ←
+      next: →
+      truncate: …
+  activerecord:
+    models:
+      user: Пользователь
+      author: Автор
+      book: Книга
+      hall: Зал
+      stack: Стеллаж
+    attributes:
+      user:
+        email: Пользовательское имя/электронная почта
+        birthday: Дата рождения
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        reset_password_email_sent_at: Дата отправления письма для смены пароля
+        activation_state: Статус активации
+        activation_token_expires_at: Дата прекращения действия токена активации
+        last_login_at: Время последнего входа в систему
+        role_users: Роли
+      role: 
+        name: Обозначение
+        info: Краткое название
+        full_info: Описание
+      # nested_start
+      role_user: &role_users
+      # nested_finish
+        role: Роль
+        role_id: Роль
+        data: Параметры
+      # nested_start
+      user/role_users:
+        <<: *role_users
+      # nested_finish    
+      author:
+        author_index: Авторский указатель
+        first_name: Имя
+        second_name: Отчество
+        last_name: Фамилия
+      book:
+        isbn: ISBN
+        name: Название
+        volume: Часть
+        year_of_publishing: Год издания
+        number_of_shelf: Номер полки
+        number_of_copies: Количество копий
+        stack_id: Стеллаж
+      stack:
+        index: Индекс
+        hall_id: Зал
+      hall:
+        full_name: Полное название
+        short_name: Краткое название
+    errors:
+      models:
+        person:
+          attributes:
+            snils:
+              check_sum: имеет неправильную контрольную сумму

@@ -1,0 +1,22 @@
+= form_for @hall do |f|
+  - if @hall.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@hall.errors.count, "error")} prohibited this hall from being saved:"
+      %ul
+        - @hall.errors.full_messages.each do |msg|
+          %li= msg
+  .row
+    .col-md-6
+      .form-group
+        = f.label :full_name
+        = f.text_field :full_name, class: 'form-control'
+  .row
+    .col-md-6
+      .form-group
+        = f.label :short_name
+        = f.text_field :short_name, class: 'form-control'
+  - if is_admin?
+    .form-actions.bottom20
+      = f.submit nil, class: 'btn btn-primary'
+  - else
+    %h3 Вносить изменения(регистрировать новые) может только администратор

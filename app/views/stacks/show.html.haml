@@ -1,0 +1,18 @@
+=breadcrumb_tag do
+  %li.active
+    = @stack.index
+  %li
+    = link_to 'Стеллажи', stacks_path
+  %li
+    Библиотека
+
+%h1= @stack.index
+
+%dl
+  %dt= Stack.human_attribute_name(:index)
+  %dd= @stack.index
+  %h3 Зал
+  %dt= Hall.human_attribute_name(:full_name)
+  %dd= @stack.hall.full_name
+  %dt= Hall.human_attribute_name(:short_name)
+  %dd= @stack.hall.short_name
