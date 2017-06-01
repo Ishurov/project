@@ -134,7 +134,7 @@ ru:
         <<: *role_users
       # nested_finish    
       author:
-        author_index: Авторский указатель
+        index_of_author: Авторский указатель
         first_name: Имя
         second_name: Отчество
         last_name: Фамилия

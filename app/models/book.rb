@@ -19,13 +19,13 @@ class Book < ActiveRecord::Base
        result = result.where(name: params['name'])
      end
      if params['isbn'].present?
-       result = result.where(date_of_manufacture: params['isbn'])
+       result = result.where(isbn: params['isbn'])
      end
      if params['year_of_publishing'].present?
-       result = result.where(date_of_completion: params['year_of_publishing'])
+       result = result.where(year_of_publishing: params['year_of_publishing'])
      end
      if params['number_of_copies'].present?
-       result = result.where(amount: params['number_of_copies'])
+       result = result.where(number_of_copies: params['number_of_copies'])
      end
 
      if params['stack'].present?
