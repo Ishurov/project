@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20170523124056) do
     t.datetime "updated_at",      null: false
   end
 
+  add_index "authors", ["index_of_author"], name: "index_authors_on_index_of_author", using: :btree
+
   create_table "authors_books", id: false, force: :cascade do |t|
     t.integer "author_id", null: false
     t.integer "book_id",   null: false
@@ -37,7 +39,7 @@ ActiveRecord::Schema.define(version: 20170523124056) do
     t.integer  "volume"
     t.integer  "isbn",               null: false
     t.integer  "year_of_publishing", null: false
-    t.integer  "stack_id"
+    t.integer  "stack_id",           null: false
     t.integer  "number_of_copies",   null: false
     t.integer  "number_of_shelf"
     t.datetime "created_at",         null: false

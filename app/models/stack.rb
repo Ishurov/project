@@ -1,6 +1,6 @@
 class Stack < ActiveRecord::Base
   belongs_to :hall
-  has_many :books
+  has_many :books, dependent: :destroy
   
   validates :index, presence: true
   validates :hall, presence: true

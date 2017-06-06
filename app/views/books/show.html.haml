@@ -26,4 +26,4 @@
   %dt Авторы:
   -au= @book.authors
   -au.each do |r|
-    %dd= r.author_index.to_s + " " + r.last_name + " " + r.first_name + " " + r.second_name
+    %dd= r.index_of_author.to_s + " " + r.last_name + " " + r.first_name + " " + r.second_name

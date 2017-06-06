@@ -10,7 +10,7 @@ class Book < ActiveRecord::Base
   validates :volume, uniqueness: {scope: [:year_of_publishing, :isbn]}
 
   accepts_nested_attributes_for :authors,
-     reject_if: proc{ |r| r['first_name'].blank?},
+     reject_if: proc{ |r| r['first_name'].blank? & r['last_name'].blank? & r['index_of_author'].blank?},
      allow_destroy: true
 
   def self.search(params)
