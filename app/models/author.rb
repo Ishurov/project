@@ -1,6 +1,6 @@
 class Author < ActiveRecord::Base
-  has_and_belongs_to_many :books
-  validates :last_name, presence: true
-  validates :first_name, presence: true
-  validates :index_of_author, presence: true, uniqueness: true
+  has_many :author_lists, dependent: :destroy
+  has_many :books, through: :author_lists
+  
+  validates  :first_name, :last_name, :index, presence: true
 end

@@ -1,0 +1,40 @@
+= form_for @stillage do |f|
+  - if @stillage.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@stillage.errors.count, "error")} prohibited this stillage from being saved:"
+      %ul
+        - @stillage.errors.full_messages.each do |message|
+          %li= message
+
+  .row
+    .col-md-6
+      .form-group
+        = f.label :hall
+        = f.select(:hall_id, options_for_select(hall_options, f.object.hall_id), {include_blank: true}, {class: 'form-control hall_select', onchange: 'update_fields(this)'})
+    .col-md-6
+      .form-group
+        = f.label :index
+        = f.number_field :index, class: 'form-control'
+  .row 
+    = f.fields_for :hall, f.object.hall || f.object.build_hall do |hall|
+      = hall.hidden_field :id, class: 'hall_id'
+      .col-md-6
+        .form-group
+          = hall.label :full_name
+          = hall.text_field :full_name, class: 'form-control full_name'
+          = hall.error_messages_for(:full_name)
+      .col-md-6
+        .form-group
+          = hall.label :short_name
+          = hall.text_field :short_name, class: 'form-control short_name'
+          = hall.error_messages_for(:short_name)
+  - if params[:action] == 'edit'
+    - if !f.object.new_record?
+      = link_to @stillage.hall,
+      :method => :delete,
+      :data => { :confirm => t('buttons.confirm.hall') },
+      class: 'btn btn-danger' do
+        = fa_icon :times
+        = t('buttons.destroy')
+  .form-actions.bottom20
+    = f.submit nil, class: 'btn btn-primary'

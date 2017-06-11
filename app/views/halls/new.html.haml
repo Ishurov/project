@@ -1,11 +1,5 @@
-=breadcrumb_tag do
-  %li.active
-    = t('headers.halls.new')
-  %li
-    = link_to 'Залы', halls_path
-  %li
-    Библиотека
-.page-header
-  %h1= t('headers.halls.new')
+%h1 New hall
+
 = render 'form'
 
+= link_to 'Back', halls_path

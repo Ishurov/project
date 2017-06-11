@@ -1,0 +1,2 @@
+module StillagesHelper
+end

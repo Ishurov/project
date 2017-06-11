@@ -1,0 +1,23 @@
+%h1= t('headers.author_lists.index')
+
+%table
+  %thead
+    %tr
+      %th= AuthorList.human_attribute_name(:author)
+      %th= AuthorList.human_attribute_name(:book)
+      %th
+      %th
+      %th
+
+  %tbody
+    - @author_lists.each do |author_list|
+      %tr
+        %td= author_list.author.sname
+        %td= author_list.book.name
+        %td= link_to 'Show', author_list
+        %td= link_to 'Edit', edit_author_list_path(author_list)
+        %td= link_to 'Destroy', author_list, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Author list', new_author_list_path

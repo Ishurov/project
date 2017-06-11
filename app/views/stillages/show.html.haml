@@ -1,0 +1,17 @@
+=breadcrumb_tag do
+  %li.active
+    = @stillage.index.to_s() + ' в ' + @stillage.hall.full_name + ' (' + @stillage.hall.short_name + ')'
+  %li
+    = link_to t('headers.stillages.index'), stillages_path()
+  %li
+    Библиотека
+
+.page-header
+  %h1= @stillage.index.to_s() + ' в ' + @stillage.hall.full_name + ' (' + @stillage.hall.short_name + ')'
+
+%p
+  %b= Stillage.human_attribute_name(:index)
+  = @stillage.index
+%p
+  %b= Stillage.human_attribute_name(:hall)
+  = @stillage.hall.full_name + ' (' + @stillage.hall.short_name + ')'

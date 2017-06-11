@@ -1,14 +1,7 @@
-=breadcrumb_tag do
-  %li.active
-    = t('headers.authors.edit')
-  %li
-    = link_to(@author.index_of_author, @author)
-  %li
-    = link_to 'Авторы', authors_path
-  %li
-    Библиотека
-    
-.page-header
-  %h1= t('headers.authors.edit')
+%h1 Editing author
 
 = render 'form'
+
+= link_to 'Show', @author
+\|
+= link_to 'Back', authors_path

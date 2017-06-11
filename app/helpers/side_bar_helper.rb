@@ -2,48 +2,77 @@ module SideBarHelper
   def side_bar_items(ru)
     result = []
     result << {
-      :name => 'Начальная страница',
+      :name => 'Сслыка без детей',
       :icon => 'list',
       :controller => :welcome, 
       :action => :index
     }
-    if is_admin?
-      result << {
-        :name => 'Администрирование',
-        :icon => 'users',
-        :children => [
-        {:name => 'Пользователи',
-         :controller => :users, :action => :index,
-         :icon => 'users',
-         :class => 'long'},
-        {:name => 'Добавление',
-         :controller => :users, :action => :new,
-         :icon => 'user-plus'},
-        {:name => 'Роли',
-         :controller => :roles, :action => :index,
-         :icon => 'align-center',
-         :class => 'long'},
-      ]}
-      result
-    end
+
+    # result << {
+    #   :name => 'Списки авторов',
+    #   :icon => 'list',
+    #   :controller => :author_lists, 
+    #   :action => :index
+    # }
+    # result << {
+    #   :name => 'Авторы',
+    #   :icon => 'list',
+    #   :controller => :authors, 
+    #   :action => :index
+    # }
     result << {
-      :name => 'Библиотека',
-      :icon => 'bookmark',
+      :name => 'Книги',
+      :icon => 'book',
+      :controller => :books, 
+      :action => :index
+    }
+    # result << {
+    #   :name => 'Залы',
+    #   :icon => 'list',
+    #   :controller => :halls, 
+    #   :action => :index
+    # }
+    result << {
+      :name => 'Стеллажи',
+      :icon => 'inbox',
+      :controller => :stillages, 
+      :action => :index
+    }
+    result << {
+      :name => 'Поиск',
+      :icon => 'search',
+      :controller => :books, 
+      :action => :search
+    }
+
+    result << {
+      :name => 'Администрирование',
+      :icon => 'users',
       :children => [
-      {:name => 'Стелажи',
-       :controller => :stacks, :action => :index,
-       :icon => 'inbox',
+      {:name => 'Пользователи',
+       :controller => :users, :action => :index,
+       :icon => 'users',
        :class => 'long'},
-      {:name => 'Книги',
-       :controller => :books, :action => :index,
-       :icon => 'book',
+      {:name => 'Добавление',
+       :controller => :users, :action => :new,
+       :icon => 'user-plus'},
+      {:name => 'Роли',
+       :controller => :roles, :action => :index,
+       :icon => 'align-center',
        :class => 'long'},
-      {:name => 'Поиск книг',
+    ]} 
+    result << {
+      :name => 'Заголовок ссылок',
+      :icon => 'search-plus',
+      :children => [
+      {:name => 'Ссылка ребёнок',
+       :controller => :welcome, :action => :index,
+       :icon => 'binoculars'},
+      {:name => 'Ссылка ребёнок',
+       :controller => :welcome, :action => :index,
        :icon => 'search',
-       :controller => :books,
-       :action => :search,
        :class => 'long'}
-    ]}  
+    ]} 
     result
   end
   

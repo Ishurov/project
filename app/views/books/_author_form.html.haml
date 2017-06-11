@@ -1,0 +1,28 @@
+.row
+  .col-md-12
+    .form-group
+      = af.label :last_name
+      = af.text_field :last_name, class: 'form-control'
+      = af.error_messages_for(:last_name)
+.row
+  .col-md-12
+    .form-group
+      = af.label :first_name
+      = af.text_field :first_name, class: 'form-control'
+      = af.error_messages_for(:first_name)
+.row
+  .col-md-12
+    .form-group
+      = af.label :second_name 
+      = af.text_field :second_name, class: 'form-control'
+      = af.error_messages_for(:second_name)
+.row
+  .col-md-12
+    .form-group
+      = af.label :index
+      = af.number_field :index, class: 'form-control'
+      = af.error_messages_for(:author_index)
+.form-actions.bottom20
+  .form-group
+    - if !af.object.new_record?
+      = link_to 'Удалить автора', af.object, method: :delete, data: { confirm: 'Вы уверены? Данное действие удалит автора для ВСЕХ книг' }

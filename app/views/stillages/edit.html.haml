@@ -1,0 +1,15 @@
+=breadcrumb_tag do
+  %li.active
+    = t('headers.stillages.edit')
+  %li
+    = link_to (@stillage.index.to_s() + ' в ' + @stillage.hall.full_name + ' (' + @stillage.hall.short_name + ')'), @stillage
+  %li
+    = link_to t('headers.stillages.index'), stillages_path()
+  %li
+    Библиотека
+
+.page-header
+  %h1= t('headers.stillages.edit')
+
+= render 'form'
+

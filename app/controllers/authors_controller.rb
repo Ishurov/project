@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_app_auth
   # GET /authors
   # GET /authors.json
   def index
@@ -56,7 +56,7 @@ class AuthorsController < ApplicationController
   def destroy
     @author.destroy
     respond_to do |format|
-      format.html { redirect_to authors_url, notice: 'Author was successfully destroyed.' }
+      format.html { redirect_to books_path(), notice: 'Author was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class AuthorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def author_params
-      params.require(:author).permit(:index_of_author, :first_name, :second_name, :last_name)
+      params.require(:author).permit(:first_name, :second_name, :last_name, :index)
     end
 end

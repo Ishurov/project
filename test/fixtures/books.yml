@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  isbn: 1
-  name: MyString
+  name: MyText
   part: 1
-  imprint_year: 1
-  number_of_shelf: 1
-  stack_id: 
-  number_of_copies: 1
+  isbn: 1
+  print_year: 1
+  stillage_id: 
+  shelf: 1
+  copies: 1
 
 two:
-  isbn: 1
-  name: MyString
+  name: MyText
   part: 1
-  imprint_year: 1
-  number_of_shelf: 1
-  stack_id: 
-  number_of_copies: 1
+  isbn: 1
+  print_year: 1
+  stillage_id: 
+  shelf: 1
+  copies: 1

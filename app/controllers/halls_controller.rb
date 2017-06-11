@@ -1,6 +1,6 @@
 class HallsController < ApplicationController
   before_action :set_hall, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_app_auth
   # GET /halls
   # GET /halls.json
   def index
@@ -56,7 +56,7 @@ class HallsController < ApplicationController
   def destroy
     @hall.destroy
     respond_to do |format|
-      format.html { redirect_to stacks_url, notice: 'Hall was successfully destroyed.' }
+      format.html { redirect_to stillages_path(), notice: 'Hall was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -1,11 +1,19 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :check_app_auth, only: [:index, :show, :search]
   # GET /books
   # GET /books.json
   def index
     @books = Book.all
-    @authors = Author.all
+  end
+
+  def search
+    if params.has_key?('search')
+      @books = Book.search(params['search'])
+    else
+      @books = []
+    end
+    params['search'] ||= {}
   end
 
   # GET /books/1
@@ -24,16 +32,6 @@ class BooksController < ApplicationController
   def edit
     @book.authors.build
     @author = Author.all
-  end
-
-  def search
-    if params.has_key?('search')
-      @books = Book.search(params['search'])
-    else
-      @books = []
-    end
-    params['search'] ||= {}
-
   end
 
   # POST /books
@@ -86,10 +84,10 @@ class BooksController < ApplicationController
     def set_book
       @book = Book.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:isbn, :name, :volume, :year_of_publishing, :number_of_shelf, :stack_id, :number_of_copies,
-      authors_attributes: [:id, :second_name, :first_name, :last_name, :index_of_author, :_destroy])
+      params.require(:book).permit(:name, :part, :isbn, :publishing_year, :stillage_id, :shelf, :copies,
+        author_lists_attributes: [:id, :_destroy, :author_id, :book_id, 
+        author_attributes: [:id, :_destroy, :first_name, :second_name, :last_name, :index]])
     end
 end

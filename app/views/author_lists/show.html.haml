@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b= AuthorList.human_attribute_name(:author)
+  = @author_list.author.sname
+%p
+  %b= AuthorList.human_attribute_name(:book)
+  = @author_list.book.name
+
+= link_to 'Edit', edit_author_list_path(@author_list)
+\|
+= link_to 'Back', author_lists_path

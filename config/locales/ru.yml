@@ -1,67 +1,29 @@
 ru:
   app:
-    name: Приложение в разработке
+    name: Базовое приложение
     company:
       short_name: МПУ
       department: Кафедра
-    users:
-      index: Список пользователей
-      new-button: Новый пользователь 
-      edit: Редактирование пользователя
-      new: Создание пользователя
-    roles:
-      index: Список возможных ролей пользователей
-      new-button: Новая роль
-      edit: Редактирование роли
-      new: Создание роли
-    authors:
-      index: Список авторов
-      new-button: Новый автор 
-      edit: Редактирование автора
-      new: Создание автора
-    books:
-      index: Список книг
-      new-button: Новая книга 
-      edit: Редактирование книги
-      new: Создание книги
-    halls:
-      index: Список залов
-      new-button: Новый зал 
-      edit: Редактирование зала
-      new: Создание зала
-    stacks:
-      index: Список стеллажей
-      new-button: Новый стеллаж 
-      edit: Редактирование стеллажа
-      new: Создание стеллажа
   helpers:
     submit:
       create: Сохранить
       submit: Сохранить
       update: Сохранить
-    sure: Действительно удалить? 
   buttons:
     edit: Редактировать
     destroy: Удалить
     show: Показать
-    save: Сохранить
-    back: Назад
     confirm:
-      user: Действительно удалить пользователя?
-      role: Действительно удалить роль?
-      author: Действительно удалить автора?
-      book: Действительно удалить книгу?
-      stack: Действительно удалить стеллаж?
-      hall: Действительно удалить зал? (ВНИМАНИЕ! Будут удалены все стеллажи в этом зале)
+      user: Вы уверены что хотите удалить пользователя?
+      role: Вы уверены что хотите удалить роль?
+      stillage: Вы уверены что хотите удалить стеллаж?
+      hall: Вы уверены что хотите удалить зал?
+      book: Вы уверены что хотите удалить книгу?
     new: 
       user: Новый пользователь
       role: Новая роль
-      author: Новый автор 
-      book: Новая книга 
-      stack: Новый стеллаж
-      hall: Новый зал
-    search:
-      book: Найти книги
+      book: Новая книга
+      stillage: Новый стеллаж
   headers:
     users:
       edit: Редактирование пользователя
@@ -71,29 +33,28 @@ ru:
       index: Список возможных ролей пользователей
       edit: Редактирование роли
       new: Новая роль
+    # b1
     authors:
-      index: Список авторов
-      new: Новый автор 
+      index: Список всех авторов
       edit: Редактирование автора
+      new: Новый автор
+    author_lists:
+      index: Возможные списки авторов для книг
+      edit: Редактирование связи #?
+      new: Новый автор для книги
     books:
       index: Список книг
-      new: Новая книга 
       edit: Редактирование книги
-      search: Поиск книг
+      new: Новая книга
     halls:
       index: Список залов
-      new: Новый зал 
       edit: Редактирование зала
-    stacks:
+      new: Новый зал
+    stillages:
       index: Список стеллажей
-      new: Новый стеллаж 
       edit: Редактирование стеллажа
-  forms:
-    book_search:
-      found: Найдено книг
-      book: По параметрам книги
-      location: По расположению
-      author: По параметрам автора
+      new: Новый стеллаж
+    # b1 end
   views:
     pagination:
       first: ⇤
@@ -104,10 +65,6 @@ ru:
   activerecord:
     models:
       user: Пользователь
-      author: Автор
-      book: Книга
-      hall: Зал
-      stack: Стеллаж
     attributes:
       user:
         email: Пользовательское имя/электронная почта
@@ -119,10 +76,31 @@ ru:
         activation_token_expires_at: Дата прекращения действия токена активации
         last_login_at: Время последнего входа в систему
         role_users: Роли
-      role: 
-        name: Обозначение
-        info: Краткое название
-        full_info: Описание
+      # b1
+      author: 
+        first_name: Имя
+        second_name: Отчество
+        last_name: Фамилия
+        index: Авторский индекс
+        authors: Авторы
+      author_list: 
+        author: Автор
+        book: Книга
+      book: 
+        name: Название
+        part: Часть
+        isbn: Индекс
+        publishing_year: Год издания
+        stillage: Индекс стеллажа
+        shelf: Номер полки
+        copies: Количество экземпляров
+      hall: 
+        full_name: Название зала
+        short_name: Название стилажа
+      stillage: 
+        index: Индекс
+        hall: Зал
+      # b1 end
       # nested_start
       role_user: &role_users
       # nested_finish
@@ -132,29 +110,5 @@ ru:
       # nested_start
       user/role_users:
         <<: *role_users
-      # nested_finish    
-      author:
-        index_of_author: Авторский указатель
-        first_name: Имя
-        second_name: Отчество
-        last_name: Фамилия
-      book:
-        isbn: ISBN
-        name: Название
-        volume: Часть
-        year_of_publishing: Год издания
-        number_of_shelf: Номер полки
-        number_of_copies: Количество копий
-        stack_id: Стеллаж
-      stack:
-        index: Индекс
-        hall_id: Зал
-      hall:
-        full_name: Полное название
-        short_name: Краткое название
-    errors:
-      models:
-        person:
-          attributes:
-            snils:
-              check_sum: имеет неправильную контрольную сумму
+      # nested_finish
+          

@@ -1,3 +1,7 @@
+User.destroy_all
+Role.destroy_all
+RoleUser.destroy_all
+
 if (u1 = User.find_by_email('admin@localhost')).nil?
   u1 = User.create!(password: 'qwerty', password_confirmation: 'qwerty',
     email: 'admin@localhost')

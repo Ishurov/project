@@ -2,13 +2,15 @@
   %li.active
     = t('headers.books.edit')
   %li
-    = link_to(@book.name, @book)
+    = link_to @book.name, @book
   %li
-    = link_to 'Книги', books_path
+    = link_to t('headers.books.index'), books_path()
   %li
     Библиотека
-    
+
 .page-header
   %h1= t('headers.books.edit')
 
+
 = render 'form'
+

@@ -1,0 +1,18 @@
+.col-md-6
+  %div{class: 'panel panel-'+ (i.kind_of?(Integer) ? 'success' : 'info')}
+    .panel-heading
+      Автор:
+      - if df.object.new_record?
+        = i
+      - else
+        = df.object.author.last_name+" "+df.object.author.first_name[0]+'.'+df.object.author.second_name[0]+'.'
+      %span.toright
+        = link_to_remove_author_from_list(df)
+      .clearfix
+    .panel-body
+      - if !i.kind_of?(Integer)
+        = df.fields_for :author, Author.new() do |af|
+          = render('author_form', af: af)
+      - else
+        = df.fields_for :author do |af|
+          = render('author_form', af: af)

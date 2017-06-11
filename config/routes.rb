@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  post 'fill_hall_form' => 'stacks#fill_hall_form'
+  resources :author_lists
   resources :books do
     collection do
       get :search
     end
   end
   resources :authors
-  resources :stacks
+  resources :stillages
   resources :halls
   resources :role_users
   resources :roles
@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :activate
+    end
+    collection do
+      post :create_by_admin
+      get :new_by_admin
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

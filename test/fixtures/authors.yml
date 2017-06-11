@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  author_index: 1
-  first_name: MyString
-  second_name: MyString
-  last_name: MyString
+  fname: MyText
+  sname: MyText
+  lname: MyText
+  index: 1
 
 two:
-  author_index: 1
-  first_name: MyString
-  second_name: MyString
-  last_name: MyString
+  fname: MyText
+  sname: MyText
+  lname: MyText
+  index: 1

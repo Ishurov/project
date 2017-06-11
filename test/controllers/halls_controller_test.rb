@@ -18,7 +18,7 @@ class HallsControllerTest < ActionController::TestCase
 
   test "should create hall" do
     assert_difference('Hall.count') do
-      post :create, hall: { full_name: @hall.full_name, short_name: @hall.short_name }
+      post :create, hall: { name_full: @hall.name_full, name_short: @hall.name_short }
     end
 
     assert_redirected_to hall_path(assigns(:hall))
@@ -35,7 +35,7 @@ class HallsControllerTest < ActionController::TestCase
   end
 
   test "should update hall" do
-    patch :update, id: @hall, hall: { full_name: @hall.full_name, short_name: @hall.short_name }
+    patch :update, id: @hall, hall: { name_full: @hall.name_full, name_short: @hall.name_short }
     assert_redirected_to hall_path(assigns(:hall))
   end
 

@@ -1,0 +1,16 @@
+= form_for @author_list do |f|
+  - if @author_list.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@author_list.errors.count, "error")} prohibited this author_list from being saved:"
+      %ul
+        - @author_list.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :author
+    = f.select(:author_id, options_for_select(Author.pluck('last_name, id'), f.object.author_id))
+  .field
+    = f.label :book
+    = f.select(:book_id, options_for_select(Book.pluck('name, id'), f.object.book_id))
+  .actions
+    = f.submit 'Save'

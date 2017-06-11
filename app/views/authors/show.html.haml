@@ -1,23 +1,18 @@
-=breadcrumb_tag do
-  %li.active
-    = @author.index_of_author
-  %li
-    = link_to 'Авторы', authors_path
-  %li
-    Библиотека
+%p#notice= notice
 
-%h1= @author.index_of_author
+%p
+  %b= Author.human_attribute_name(:first_name)
+  = @author.first_name
+%p
+  %b= Author.human_attribute_name(:second_name)
+  = @author.second_name
+%p
+  %b= Author.human_attribute_name(:last_name)
+  = @author.last_name
+%p
+  %b= Author.human_attribute_name(:index)
+  = @author.index
 
-%dl
-  %dt= Author.human_attribute_name(:index_of_author)
-  %dd= @author.index_of_author
-  %dt= Author.human_attribute_name(:first_name)
-  %dd= @author.first_name
-  %dt= Author.human_attribute_name(:second_name)
-  %dd= @author.second_name
-  %dt= Author.human_attribute_name(:last_name)
-  %dd= @author.last_name
-  %h2 Книги
-  %dd= @author.books.map{ |ru| ru.name }.join(', ')
-
-
+= link_to 'Edit', edit_author_path(@author)
+\|
+= link_to 'Back', authors_path
